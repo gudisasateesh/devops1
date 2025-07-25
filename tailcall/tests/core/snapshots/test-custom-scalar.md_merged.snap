@@ -1,0 +1,14 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+scalar Json
+
+type Query {
+  foo: [Json] @http(url: "http://jsonplacheholder.typicode.com/foo")
+}

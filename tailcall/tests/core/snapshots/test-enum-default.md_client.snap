@@ -1,0 +1,27 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type News {
+  foo: Status
+  id: Int
+}
+
+type NewsData {
+  news: [News]
+}
+
+type Query {
+  news: NewsData!
+}
+
+enum Status {
+  DRAFT
+  NOT_DEFINED
+  PUBLISHED
+}
+
+schema {
+  query: Query
+}

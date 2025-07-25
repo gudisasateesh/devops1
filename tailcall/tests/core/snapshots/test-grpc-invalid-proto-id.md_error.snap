@@ -1,0 +1,16 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Protobuf files were not specified in the config",
+    "trace": [
+      "Query",
+      "news",
+      "@grpc"
+    ],
+    "description": null
+  }
+]

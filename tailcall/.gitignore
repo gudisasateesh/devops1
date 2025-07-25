@@ -1,0 +1,21 @@
+/target
+/.idea
+/.vscode
+.DS_Store
+.bsp
+# direnv
+.direnv
+.envrc
+.env
+
+npm/@tailcallhq
+node_modules/
+
+# cloudflare
+.wrangler/
+tailcall-/cloudflare/build
+
+*.snap.new
+flamegraph.svg
+perf.data
+perf.data.old

@@ -1,0 +1,31 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server(port: 8000) @upstream(batch: {delay: 1, headers: []}) @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Post {
+  body: String
+  id: Int
+  title: String
+  user: User
+    @http(
+      url: "http://jsonplaceholder.typicode.com/users"
+      batchKey: ["id"]
+      query: [{key: "id", value: "{{.value.userId}}"}]
+      dedupe: true
+    )
+  userId: Int!
+}
+
+type Query {
+  posts: [Post] @http(url: "http://jsonplaceholder.typicode.com/posts?id=1", dedupe: true)
+}
+
+type User {
+  id: Int
+  name: String
+}

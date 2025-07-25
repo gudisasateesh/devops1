@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Query {
+  users_list: [User] @graphQL(url: "http://upstream/graphql", name: "users")
+}
+
+type User {
+  id: Int
+  name: String
+}

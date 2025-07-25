@@ -1,0 +1,29 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "edibleAnimals": [
+        {
+          "id": "salmon-1"
+        },
+        {
+          "id": "salmon-2"
+        },
+        {
+          "id": "pig-1"
+        },
+        {
+          "id": "pig-2"
+        }
+      ]
+    }
+  }
+}

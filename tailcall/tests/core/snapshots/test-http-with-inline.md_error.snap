@@ -1,0 +1,27 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "no value 'userId' found",
+    "trace": [
+      "Query",
+      "post",
+      "@http",
+      "path"
+    ],
+    "description": null
+  },
+  {
+    "message": "no value 'userId' found",
+    "trace": [
+      "Query",
+      "@addField",
+      "@http",
+      "path"
+    ],
+    "description": null
+  }
+]

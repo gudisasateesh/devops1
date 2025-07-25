@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Address {
+  city: String
+  street: String
+  zipcode: String
+}
+
+type Query {
+  user: User @http(url: "http://jsonplaceholder.typicode.com/users/1")
+}
+
+type User
+  @addField(name: "street", path: ["address", "street"])
+  @addField(name: "city", path: ["address", "city"])
+  @addField(name: "zipcode", path: ["address", "zipcode"]) {
+  address: Address
+  name: String
+}

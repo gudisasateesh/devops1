@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Company {
+  id: ID
+  name: String
+}
+
+type Query {
+  hi(id: ID!): Company @http(url: "http://localhost:3000/hi")
+}

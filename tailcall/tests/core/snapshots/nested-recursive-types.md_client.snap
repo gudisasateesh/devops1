@@ -1,0 +1,47 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Connection {
+  nested: NestedUser
+  type: String
+}
+
+input ConnectionInput {
+  nested: NestedUserInput
+  type: String
+}
+
+type Mutation {
+  createUser(user: UserInput): User
+}
+
+type NestedUser {
+  user: User
+}
+
+input NestedUserInput {
+  user: UserInput
+}
+
+type Query {
+  user: User
+}
+
+type User {
+  connections: [Connection]
+  id: Int!
+  name: String
+}
+
+input UserInput {
+  connections: [ConnectionInput]
+  id: Int!
+  name: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

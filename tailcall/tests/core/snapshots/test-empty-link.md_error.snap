@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Link src cannot be empty",
+    "trace": [
+      "schema",
+      "@link",
+      "0"
+    ],
+    "description": null
+  },
+  {
+    "message": "Link src cannot be empty",
+    "trace": [
+      "schema",
+      "@link",
+      "1"
+    ],
+    "description": null
+  }
+]

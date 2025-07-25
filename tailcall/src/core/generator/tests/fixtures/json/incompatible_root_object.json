@@ -1,0 +1,15 @@
+{
+  "request": {
+    "url": "https://example.com/"
+  },
+  "fieldName": "inCompatibleRootObject",
+  "response": {
+    "status": 200,
+    "body": {
+      "color_names": ["red", "blue"],
+      "10": ["a", "b", "c"],
+      "content_type": "application/json",
+      "other content": "not available"
+    }
+  }
+}

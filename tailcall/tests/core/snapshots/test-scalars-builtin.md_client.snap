@@ -1,0 +1,16 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Query {
+  bool(x: Boolean!): Boolean!
+  float(x: Float!): Float!
+  id(x: ID!): ID
+  int(x: Int!): Int!
+  string(x: String!): String!
+}
+
+schema {
+  query: Query
+}

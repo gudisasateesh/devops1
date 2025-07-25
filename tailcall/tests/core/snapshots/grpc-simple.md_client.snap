@@ -1,0 +1,41 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+scalar Empty
+
+type Mutation {
+  deleteNews(news: NewsId!): Empty!
+}
+
+type News {
+  body: String
+  id: Int
+  postImage: String
+  title: String
+}
+
+type NewsData {
+  news: [News]
+}
+
+input NewsId {
+  id: Int
+}
+
+input NewsInput {
+  body: String
+  id: Int
+  postImage: String
+  title: String
+}
+
+type Query {
+  news: NewsData!
+  newsById(news: NewsInput!): News!
+}
+
+schema {
+  query: Query
+}

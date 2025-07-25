@@ -1,0 +1,33 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+input PostInput {
+  id: ID!
+  title: String!
+}
+
+input UserInput {
+  id: ID!
+  name: String!
+}
+
+type Post {
+  id: ID!
+  title: String!
+}
+
+type Query {
+  post(input: PostInput!): Post @http(url: "http://localhost:8080/user/{{.args.input.id}}")
+  user(input: UserInput!): User @http(url: "http://localhost:8080/user/{{.args.input.id}}")
+}
+
+type User {
+  id: ID!
+  name: String!
+}

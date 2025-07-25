@@ -1,0 +1,13 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server(hostname: "localhost", port: 8000) @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Query {
+  emailInput(x: Email!): Boolean @expr(body: "{{.args.x}}")
+  emailOutput: Email! @expr(body: 125)
+}

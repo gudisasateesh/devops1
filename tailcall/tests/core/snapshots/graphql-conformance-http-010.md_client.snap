@@ -1,0 +1,28 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Location {
+  lat: Int!
+  lon: Int!
+}
+
+input LocationInput {
+  lat: Int!
+  lon: Int!
+}
+
+type Point {
+  id: ID!
+  location: Location
+  name: String!
+}
+
+type Query {
+  nearby(location: LocationInput): Point
+}
+
+schema {
+  query: Query
+}

@@ -1,0 +1,27 @@
+schema @server(port: 8000, hostname: "0.0.0.0") @upstream(httpCache: 42) {
+  query: Query
+}
+
+type Query {
+  posts: [Post] @http(url: "http://jsonplaceholder-1.typicode.com/posts")
+  users: [User] @http(url: "http://jsonplaceholder-2.typicode.com/users")
+  user(id: Int!): User @http(url: "http://jsonplaceholder-3.typicode.com/users/{{.args.id}}")
+  post(id: Int!): Post @http(url: "http://jsonplaceholder-1.typicode.com/posts/{{.args.id}}")
+}
+
+type User {
+  id: Int!
+  name: String!
+  username: String!
+  email: String!
+  phone: String
+  website: String @expr(body: "/users/website/{{.value.username}}")
+}
+
+type Post {
+  id: Int!
+  userId: Int!
+  title: String!
+  body: String!
+  user: User @http(url: "http://jsonplaceholder-2.typicode.com/users/{{.value.userId}}")
+}

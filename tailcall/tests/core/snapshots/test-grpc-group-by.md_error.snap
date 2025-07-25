@@ -1,0 +1,16 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "field id not found",
+    "trace": [
+      "Query",
+      "newsById",
+      "@grpc"
+    ],
+    "description": null
+  }
+]

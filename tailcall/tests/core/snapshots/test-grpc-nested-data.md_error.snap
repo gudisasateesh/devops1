@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Type '{body: Option<String>, id: Option<Number>, postImage: Option<String>, title: Option<String>}' is not assignable to type '[Option<{body: Option<String>, id: Option<Number>, postImage: Option<String>, title: Option<String>}>]'",
+    "trace": [
+      "Query",
+      "newsById",
+      "@grpc",
+      "News"
+    ],
+    "description": null
+  }
+]

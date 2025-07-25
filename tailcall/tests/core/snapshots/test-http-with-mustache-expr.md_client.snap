@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type A {
+  a: Int
+  bc: BC
+}
+
+type BC {
+  d: D
+  f: Boolean
+}
+
+type D {
+  e: Int
+}
+
+type Query {
+  a: A
+}
+
+schema {
+  query: Query
+}

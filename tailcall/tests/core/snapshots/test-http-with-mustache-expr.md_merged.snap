@@ -1,0 +1,27 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type A {
+  a: Int
+  bc: BC @expr(body: {d: "{{.value.d}}", f: "{{.value.f}}"})
+  d: D @modify(omit: true)
+}
+
+type BC {
+  d: D
+  f: Boolean
+}
+
+type D {
+  e: Int
+}
+
+type Query {
+  a: A @http(url: "http://localhost:3000/a")
+}

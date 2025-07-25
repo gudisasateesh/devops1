@@ -1,0 +1,81 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+input NNU__nu0 {
+  new: Boolean
+  nu: NU__u0
+  other: Int
+}
+
+input NNU__nu1 {
+  new: Boolean
+  nu: NU__u1
+  other: Int
+}
+
+input NNU__nu2 {
+  new: Boolean
+  nu: NU__u2
+  other: Int
+}
+
+input NU__u0 {
+  test: String
+  u: T1Input
+}
+
+input NU__u1 {
+  test: String
+  u: T2Input
+}
+
+input NU__u2 {
+  test: String
+  u: T3Input
+}
+
+type Query {
+  testVar0Var0(nu: NU__u0!, nnu: NNU__nu0): U
+  testVar0Var1(nu: NU__u0!, nnu: NNU__nu1): U
+  testVar0Var2(nu: NU__u0!, nnu: NNU__nu2): U
+  testVar1Var0(nu: NU__u1!, nnu: NNU__nu0): U
+  testVar1Var1(nu: NU__u1!, nnu: NNU__nu1): U
+  testVar1Var2(nu: NU__u1!, nnu: NNU__nu2): U
+  testVar2Var0(nu: NU__u2!, nnu: NNU__nu0): U
+  testVar2Var1(nu: NU__u2!, nnu: NNU__nu1): U
+  testVar2Var2(nu: NU__u2!, nnu: NNU__nu2): U
+}
+
+type T1 {
+  t1: String
+}
+
+input T1Input {
+  t1: String
+}
+
+type T2 {
+  t2: Int
+}
+
+input T2Input {
+  t2: Int
+}
+
+type T3 {
+  t3: Boolean
+  t33: Float!
+}
+
+input T3Input {
+  t3: Boolean
+  t33: Float!
+}
+
+union U = T1 | T2 | T3
+
+schema {
+  query: Query
+}

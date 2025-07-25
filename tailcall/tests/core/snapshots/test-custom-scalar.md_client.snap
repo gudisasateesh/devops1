@@ -1,0 +1,14 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+scalar Json
+
+type Query {
+  foo: [Json]
+}
+
+schema {
+  query: Query
+}

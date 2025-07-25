@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Address {
+  geo: Geo
+  street: String
+}
+
+type Geo {
+  lat: String
+  lng: String
+}
+
+type Query {
+  user: User @http(url: "http://jsonplaceholder.typicode.com/users/1")
+}
+
+type User {
+  address: Address
+}

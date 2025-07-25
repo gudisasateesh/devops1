@@ -1,0 +1,21 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type B implements IA {
+  a: String
+  b: String
+}
+
+interface IA {
+  a: String
+}
+
+type Query {
+  bar: IA
+}
+
+schema {
+  query: Query
+}

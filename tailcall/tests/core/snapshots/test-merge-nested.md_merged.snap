@@ -1,0 +1,23 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) @link(src: "schema_1.graphql", type: Config) {
+  query: Query
+}
+
+type Foo {
+  """
+  test2
+  """
+  a: String
+  """
+  test1
+  """
+  b: String
+}
+
+type Query {
+  hi: Foo @expr(body: {b: "hello"}) @expr(body: {a: "world"})
+}

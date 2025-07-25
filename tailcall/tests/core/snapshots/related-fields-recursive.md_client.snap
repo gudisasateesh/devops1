@@ -1,0 +1,22 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type NodeA {
+  name: String
+  nodeB: NodeB
+}
+
+type NodeB {
+  name: String
+  nodeA: NodeA
+}
+
+type Query {
+  queryNodeA: [NodeA]
+}
+
+schema {
+  query: Query
+}

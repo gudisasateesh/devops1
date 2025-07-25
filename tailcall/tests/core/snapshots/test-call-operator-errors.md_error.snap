@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Parsing failed because of missing field `url`",
+    "trace": [
+      "Query",
+      "userWithGraphQLResolver",
+      "@graphQL"
+    ],
+    "description": null
+  },
+  {
+    "message": "Parsing failed because of missing field `url`",
+    "trace": [
+      "Query",
+      "userWithGraphQLHeaders",
+      "@graphQL"
+    ],
+    "description": null
+  }
+]

@@ -1,0 +1,15 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "access-control-allow-headers": "Authorization",
+    "access-control-allow-methods": "POST, OPTIONS",
+    "access-control-max-age": "23",
+    "vary": "origin, access-control-request-method, access-control-request-headers"
+  },
+  "body": null
+}

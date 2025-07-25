@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Query {
+  firstUser: User1
+}
+
+type User {
+  id: Int
+  name: String
+}
+
+type User1 {
+  user1: User2
+}
+
+type User2 {
+  user2: User
+}
+
+schema {
+  query: Query
+}

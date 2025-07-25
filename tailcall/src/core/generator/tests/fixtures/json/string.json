@@ -1,0 +1,10 @@
+{
+  "request": {
+    "url": "https://example.com/login/status"
+  },
+  "fieldName": "loginStatus",
+  "response": {
+    "status": 200,
+    "body": "successfully"
+  }
+}

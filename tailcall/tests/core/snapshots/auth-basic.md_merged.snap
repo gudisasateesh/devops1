@@ -1,0 +1,34 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema
+  @server(port: 8000)
+  @upstream
+  @link(id: "htpasswd", src: ".htpasswd", type: Htpasswd)
+  @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+  mutation: Mutation
+}
+
+type Mutation {
+  protectedType: ProtectedType @http(url: "http://upstream/protected")
+}
+
+type Nested {
+  name: String!
+  protected: String! @protected
+}
+
+type ProtectedType @protected {
+  name: String!
+  nested: String!
+}
+
+type Query {
+  nested: Nested! @expr(body: {name: "nested name", protected: "protected nested"})
+  protectedScalar: String! @expr(body: "data from protected scalar") @protected
+  protectedType: ProtectedType @expr(body: {name: "protected type name", nested: "protected type nested"})
+  scalar: String! @expr(body: "data from public scalar")
+}

@@ -1,0 +1,29 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Entry {
+  arr: String
+  bool: String
+  nested: Nested
+  num: String
+  obj: String
+  str: String
+}
+
+type Nested {
+  arr: String
+  bool: String
+  num: String
+  obj: String
+  str: String
+}
+
+type Query {
+  entry: Entry
+}
+
+schema {
+  query: Query
+}

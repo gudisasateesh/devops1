@@ -1,0 +1,12 @@
+---
+source: src/core/generator/tests/json_to_config_spec.rs
+expression: cfg.to_sdl()
+snapshot_kind: text
+---
+schema @server @upstream {
+  query: Query
+}
+
+type Query {
+  userStatus(GEN__1: Int!): Boolean @http(url: "https://example.com/user/{{.args.GEN__1}}/online")
+}

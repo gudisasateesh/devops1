@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+input IntFilter {
+  i: Int
+}
+
+type MyType {
+  id: String!
+  name(sf: StringFilter): String
+  num(if: IntFilter): Int
+}
+
+type Query {
+  queryTest(filter: StringFilter): [MyType]
+}
+
+input StringFilter {
+  s: String
+}
+
+schema {
+  query: Query
+}

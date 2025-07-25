@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Address {
+  geo: Geo
+}
+
+type Geo {
+  lat: String
+}
+
+type Query {
+  user: User
+}
+
+type User {
+  address: Address
+  lat: String
+}
+
+schema {
+  query: Query
+}

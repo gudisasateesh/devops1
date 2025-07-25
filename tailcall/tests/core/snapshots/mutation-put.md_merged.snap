@@ -1,0 +1,37 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+  mutation: Mutation
+}
+
+input PostInput {
+  body: String
+  id: Int
+  title: String
+  userId: Int
+}
+
+type Mutation {
+  insertPost(input: PostInput!): Post
+    @http(url: "http://jsonplaceholder.typicode.com/posts/{{.args.input.id}}", body: "{{.args.input}}", method: "PUT")
+}
+
+type Post {
+  body: String
+  id: Int
+  title: String
+  userId: Int
+}
+
+type Query {
+  firstUser: User @http(url: "http://jsonplaceholder.typicode.com/users/1")
+}
+
+type User {
+  id: Int
+  name: String
+}

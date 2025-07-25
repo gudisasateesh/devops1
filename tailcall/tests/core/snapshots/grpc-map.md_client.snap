@@ -1,0 +1,22 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+scalar JSON
+
+type Query {
+  map__MapService__GetMap(mapRequest: map__MapRequest!): map__MapResponse!
+}
+
+input map__MapRequest {
+  map: JSON!
+}
+
+type map__MapResponse {
+  map: JSON!
+}
+
+schema {
+  query: Query
+}

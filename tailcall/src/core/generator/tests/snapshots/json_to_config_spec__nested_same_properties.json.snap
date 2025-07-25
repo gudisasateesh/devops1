@@ -1,0 +1,30 @@
+---
+source: src/core/generator/tests/json_to_config_spec.rs
+expression: cfg.to_sdl()
+snapshot_kind: text
+---
+schema @server @upstream {
+  query: Query
+}
+
+type GEN__1 {
+  age: Int
+}
+
+type GEN__2 {
+  container: GEN__1
+  name: String
+}
+
+type GEN__3 {
+  container: GEN__2
+  name: String
+}
+
+type GEN__4 {
+  container: GEN__3
+}
+
+type Query {
+  nestedSameProperties: GEN__4 @http(url: "https://example.com/")
+}

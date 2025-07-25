@@ -1,0 +1,18 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Query {
+  user(id: ID!): User!
+}
+
+type User {
+  id: ID!
+  name: String!
+  profilePic(size: Int, width: Int, height: Int): String!
+}
+
+schema {
+  query: Query
+}

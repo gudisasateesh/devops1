@@ -1,0 +1,24 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "protectedScalar": "data from protected scalar",
+      "nested": {
+        "name": "nested name",
+        "protected": "protected nested"
+      },
+      "protectedType": {
+        "name": "protected type name",
+        "nested": "protected type nested"
+      }
+    }
+  }
+}

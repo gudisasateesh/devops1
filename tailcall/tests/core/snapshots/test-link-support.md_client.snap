@@ -1,0 +1,20 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type News {
+  id: Int
+}
+
+input NewsInput {
+  id: Int
+}
+
+type Query {
+  newsById(news: NewsInput!): News!
+}
+
+schema {
+  query: Query
+}

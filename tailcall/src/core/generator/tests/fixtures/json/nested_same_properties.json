@@ -1,0 +1,20 @@
+{
+  "request": {
+    "url": "https://example.com"
+  },
+  "fieldName": "nestedSameProperties",
+  "response": {
+    "status": 200,
+    "body": {
+      "container": {
+        "name": "Testing",
+        "container": {
+          "name": "Testing",
+          "container": {
+            "age": 16
+          }
+        }
+      }
+    }
+  }
+}

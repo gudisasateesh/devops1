@@ -1,0 +1,32 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+input Foo {
+  bar: String! = "BUZZ"
+}
+
+type Query {
+  user(id: ID!): User!
+}
+
+type User {
+  featuredVideo(video: VideoSize! = {width: 1600, height: 900}): String!
+  featuredVideoPreview(video: VideoSize! = {}): String!
+  id: ID!
+  name: String!
+  profilePic(size: Int! = 100, width: Int, height: Int = 100): String!
+  searchComments(query: [[String!]!]! = [["today"]]): String!
+  spam(foo: [Foo!]!): String!
+}
+
+input VideoSize {
+  hdr: Boolean = true
+  height: Int!
+  width: Int!
+}
+
+schema {
+  query: Query
+}

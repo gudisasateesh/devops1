@@ -1,0 +1,38 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+union FooBarBaz = Bar | Baz | Foo
+
+type Bar {
+  bar: String
+}
+
+type Baz {
+  bar: String
+  baz: String
+}
+
+type Foo {
+  foo: String
+}
+
+type Nested {
+  bar: FooBarBaz
+  foo: FooBarBaz
+}
+
+type Query {
+  arr: [FooBarBaz] @http(url: "http://jsonplaceholder.typicode.com/arr")
+  bar: FooBarBaz @http(url: "http://jsonplaceholder.typicode.com/bar")
+  foo: FooBarBaz @http(url: "http://jsonplaceholder.typicode.com/foo")
+  nested: Nested @http(url: "http://jsonplaceholder.typicode.com/nested")
+  string: FooBarBaz @http(url: "http://jsonplaceholder.typicode.com/string")
+  unknown: FooBarBaz @http(url: "http://jsonplaceholder.typicode.com/unknown")
+  wrong: FooBarBaz @http(url: "http://jsonplaceholder.typicode.com/wrong")
+}

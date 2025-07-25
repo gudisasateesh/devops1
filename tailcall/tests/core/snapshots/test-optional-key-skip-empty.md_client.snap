@@ -1,0 +1,22 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Bar {
+  id: Int
+}
+
+type Foo {
+  bar: Bar
+  id: Int!
+  tag: String
+}
+
+type Query {
+  foos: [Foo]
+}
+
+schema {
+  query: Query
+}

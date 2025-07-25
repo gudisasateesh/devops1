@@ -1,0 +1,39 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Connection {
+  type: String
+  user: User
+}
+
+input ConnectionInput {
+  type: String
+  user: UserInput
+}
+
+type Mutation {
+  createUser(user: UserInput): User
+}
+
+type Query {
+  user: User
+}
+
+type User {
+  connections: [Connection]
+  id: Int!
+  name: String
+}
+
+input UserInput {
+  connections: [ConnectionInput]
+  id: Int!
+  name: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

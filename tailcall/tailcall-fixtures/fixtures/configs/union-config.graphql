@@ -1,0 +1,23 @@
+schema @server {
+  query: Query
+}
+
+union FooBar = Bar | Baz | Foo
+
+type Bar {
+  bar: String
+}
+
+type Baz {
+  bar: String
+}
+
+type Foo {
+  a: String
+  foo: String
+  bar: String
+}
+
+type Query {
+  foo: FooBar @http(url: "http://jsonplacheholder.typicode.com/foo")
+}

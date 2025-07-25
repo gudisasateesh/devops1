@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type A {
+  b: [String]
+  c: String
+  d: String
+}
+
+type Query {
+  u: U @http(url: "http://jsonplaceholder.typicode.com/us/1")
+}
+
+type U
+  @addField(name: "b", path: ["a", "b"])
+  @addField(name: "c", path: ["a", "c"])
+  @addField(name: "d", path: ["a", "d"]) {
+  a: A
+  e: String
+}

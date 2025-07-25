@@ -1,0 +1,20 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema
+  @server
+  @upstream(allowedHeaders: ["Authorization"])
+  @link(src: "stripe-types.graphql", type: Config)
+  @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Foo {
+  bar: String
+}
+
+type Query {
+  foo: Foo @expr(body: {bar: "foo"})
+}

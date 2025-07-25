@@ -1,0 +1,21 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+interface IA {
+  a: String
+}
+
+type B implements IA {
+  a: String
+  b: String
+}
+
+type Query {
+  bar: B @http(url: "http://jsonplaceholder.typicode.com/user")
+}

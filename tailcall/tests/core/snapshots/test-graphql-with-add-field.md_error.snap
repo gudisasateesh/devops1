@@ -1,0 +1,15 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Cannot add field",
+    "trace": [
+      "Query",
+      "@addField"
+    ],
+    "description": "Path: [post, user, name] contains resolver graphQL at [Post.user]"
+  }
+]

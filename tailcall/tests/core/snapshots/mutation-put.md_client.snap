@@ -1,0 +1,36 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Mutation {
+  insertPost(input: PostInput!): Post
+}
+
+type Post {
+  body: String
+  id: Int
+  title: String
+  userId: Int
+}
+
+input PostInput {
+  body: String
+  id: Int
+  title: String
+  userId: Int
+}
+
+type Query {
+  firstUser: User
+}
+
+type User {
+  id: Int
+  name: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

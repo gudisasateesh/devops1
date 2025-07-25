@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Input types can not be protected",
+    "trace": [
+      "Input",
+      "value",
+      "@protected"
+    ],
+    "description": null
+  },
+  {
+    "message": "Input types can not be protected",
+    "trace": [
+      "NewPost",
+      "content",
+      "@protected"
+    ],
+    "description": null
+  }
+]

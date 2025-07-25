@@ -1,0 +1,24 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream(batch: {delay: 1, headers: [], maxSize: 1000}) @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Query {
+  fieldCache: Type @http(url: "http://example.com/field-cache") @cache(maxAge: 30000)
+  fieldCacheList: [Type] @http(url: "http://example.com/field-cache-list") @cache(maxAge: 30000)
+  typeCache: TypeCache
+}
+
+type Type {
+  id: Int
+}
+
+type TypeCache @cache(maxAge: 1000) {
+  a: Type @http(url: "http://example.com/type-cache-a")
+  b: Type @http(url: "http://example.com/type-cache-b")
+  list: [Type] @http(url: "http://example.com/type-cache-list")
+}

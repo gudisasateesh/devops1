@@ -1,0 +1,10 @@
+{
+  "request": {
+    "url": "https://example.com/users"
+  },
+  "fieldName": "users",
+  "response": {
+    "statusCode": 200,
+    "body": []
+  }
+}

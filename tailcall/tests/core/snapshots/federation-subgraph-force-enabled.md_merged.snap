@@ -1,0 +1,33 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema
+  @server(enableFederation: true, port: 8000)
+  @upstream(batch: {delay: 100, headers: []}, httpCache: 42)
+  @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Post {
+  id: Int!
+  title: String! @external
+}
+
+type Query {
+  """
+  Apollo federation Query._service resolver
+  """
+  _service: _Service!
+  user(id: Int!): User @http(url: "http://jsonplaceholder.typicode.com/users/{{.args.id}}")
+}
+
+type User @tag(name: "team-accounts") {
+  id: Int!
+  name: String! @shareable
+}
+
+type _Service {
+  sdl: String
+}

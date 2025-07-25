@@ -1,0 +1,15 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "No resolver has been found in the schema",
+    "trace": [
+      "Query",
+      "user"
+    ],
+    "description": null
+  }
+]

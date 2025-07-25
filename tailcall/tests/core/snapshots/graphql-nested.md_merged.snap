@@ -1,0 +1,31 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type NodeA {
+  name: String
+  nodeA: NodeA @modify(name: "child")
+  nodeB: NodeB
+  nodeC: NodeC
+}
+
+type NodeB {
+  name: String
+  nodeA: NodeA
+  nodeC: NodeC
+}
+
+type NodeC {
+  name: String
+  nodeA: NodeA
+  nodeB: NodeB
+}
+
+type Query {
+  queryNodeA: NodeA @graphQL(url: "http://upstream/graphql", name: "nodeA")
+}

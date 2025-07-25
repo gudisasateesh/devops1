@@ -1,0 +1,18 @@
+---
+source: src/core/generator/tests/json_to_config_spec.rs
+expression: cfg.to_sdl()
+snapshot_kind: text
+---
+schema @server @upstream {
+  query: Query
+}
+
+type GEN__1 {
+  adult: Boolean
+  age: Int
+  name: String
+}
+
+type Query {
+  userData: [GEN__1] @http(url: "https://example.com/users")
+}

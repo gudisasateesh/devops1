@@ -1,0 +1,21 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema
+  @server(hostname: "0.0.0.0", introspection: false, port: 8001, queryValidation: false)
+  @upstream(httpCache: 42)
+  @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Query {
+  me: User! @http(url: "http://upstream/me")
+}
+
+type User {
+  birthday: Date
+  id: String
+  name: String
+}

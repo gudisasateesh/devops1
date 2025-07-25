@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Post {
+  body: String!
+  id: Int!
+  title: String!
+  user: User
+  userId: Int!
+}
+
+type Query {
+  posts: [Post]
+}
+
+type User {
+  id: Int!
+  name: String!
+}
+
+schema {
+  query: Query
+}

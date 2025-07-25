@@ -1,0 +1,18 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Query {
+  user: User
+}
+
+type User {
+  complements: [String]
+  name: String
+  zipcode: String
+}
+
+schema {
+  query: Query
+}

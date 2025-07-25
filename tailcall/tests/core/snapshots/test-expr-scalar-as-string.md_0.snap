@@ -1,0 +1,33 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "entry": {
+        "num": "0",
+        "arr": "[1, 2, 3]",
+        "str": "test",
+        "obj": "{e: 1}",
+        "bool": "true",
+        "nested": {
+          "num": 0,
+          "arr": [
+            1,
+            2,
+            3
+          ],
+          "str": "test",
+          "obj": "{e: 1}",
+          "bool": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+enum EnumType {
+  INFORMATION
+  WARNING
+}
+
+type Post {
+  severity: WithOptEnum!
+}
+
+type Query {
+  post: Post @expr(body: {severity: {type: null}})
+}
+
+type WithOptEnum {
+  type: EnumType
+}

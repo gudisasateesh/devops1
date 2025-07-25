@@ -1,0 +1,15 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+scalar Email
+
+type Query {
+  emailInput(x: Email!): Boolean
+  emailOutput: Email!
+}
+
+schema {
+  query: Query
+}

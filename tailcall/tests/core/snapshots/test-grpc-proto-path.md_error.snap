@@ -1,0 +1,12 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "No such file or directory (os error 2)",
+    "trace": [],
+    "description": null
+  }
+]

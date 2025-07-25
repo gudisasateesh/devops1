@@ -1,0 +1,22 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Bar {
+  """
+  This is test2
+  """
+  baz: String
+}
+
+type Query {
+  """
+  This is test
+  """
+  foo: Bar
+}
+
+schema {
+  query: Query
+}

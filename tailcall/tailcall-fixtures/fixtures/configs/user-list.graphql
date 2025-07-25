@@ -1,0 +1,24 @@
+schema @server(port: 8000, hostname: "0.0.0.0") @upstream(httpCache: 42) {
+  query: Query
+}
+
+type F2 {
+  user: [User]
+}
+
+type F3 {
+  user: User
+}
+
+type User {
+  id: Int!
+  name: String!
+  username: String!
+  email: String!
+  phone: String
+}
+
+type Query {
+  users: F2 @http(url: "http://jsonplaceholder.typicode.com/users")
+  user(id: Int!): F3 @http(url: "http://jsonplaceholder.typicode.com/users/{{.args.id}}")
+}

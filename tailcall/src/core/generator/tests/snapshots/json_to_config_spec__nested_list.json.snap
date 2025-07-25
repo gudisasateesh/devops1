@@ -1,0 +1,27 @@
+---
+source: src/core/generator/tests/json_to_config_spec.rs
+expression: cfg.to_sdl()
+snapshot_kind: text
+---
+schema @server @upstream {
+  query: Query
+}
+
+type GEN__1 {
+  age: Int
+  name: String
+}
+
+type GEN__2 {
+  age: Int
+  children: [GEN__1]
+  name: String
+}
+
+type GEN__3 {
+  people: [GEN__2]
+}
+
+type Query {
+  nestedUsers(children: Boolean): GEN__3 @http(url: "https://example.com/users", query: [{key: "children", value: "{{.args.children}}"}])
+}

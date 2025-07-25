@@ -1,0 +1,22 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+input Input {
+  id: Int
+  name: String
+}
+
+type Output {
+  id: Int
+  name: String
+}
+
+type Query {
+  bar(input: Input): Output
+}
+
+schema {
+  query: Query
+}

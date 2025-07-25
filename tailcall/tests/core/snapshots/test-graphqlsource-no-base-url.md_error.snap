@@ -1,0 +1,16 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Parsing failed because of missing field `url`",
+    "trace": [
+      "Post",
+      "user",
+      "@graphQL"
+    ],
+    "description": null
+  }
+]

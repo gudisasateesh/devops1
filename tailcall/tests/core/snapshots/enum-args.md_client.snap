@@ -1,0 +1,18 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+enum COLOR {
+  BLUE
+  GREEN
+  RED
+}
+
+type Query {
+  color(item: COLOR): COLOR
+}
+
+schema {
+  query: Query
+}

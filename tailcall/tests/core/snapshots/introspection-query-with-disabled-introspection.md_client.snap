@@ -1,0 +1,20 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+scalar Date
+
+type Query {
+  me: User!
+}
+
+type User {
+  birthday: Date
+  id: String
+  name: String
+}
+
+schema {
+  query: Query
+}

@@ -1,0 +1,18 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json",
+    "x-id": "1",
+    "x-name": "John Doe"
+  },
+  "body": {
+    "data": {
+      "greet": "Hello World!"
+    }
+  }
+}

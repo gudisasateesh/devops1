@@ -1,0 +1,16 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Batching capability was used without enabling it in upstream",
+    "trace": [
+      "Query",
+      "user",
+      "@http"
+    ],
+    "description": null
+  }
+]

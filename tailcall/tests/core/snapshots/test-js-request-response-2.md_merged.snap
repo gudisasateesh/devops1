@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema
+  @server
+  @upstream(onRequest: "onRequest")
+  @link(src: "test.js", type: Script)
+  @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Query {
+  hello: String @http(url: "http://localhost:3000/hello")
+  hi: String @http(url: "http://localhost:3000/hi")
+}

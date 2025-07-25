@@ -1,0 +1,17 @@
+---
+source: src/core/generator/tests/json_to_config_spec.rs
+expression: cfg.to_sdl()
+snapshot_kind: text
+---
+schema @server @upstream(allowedHeaders: ["authorization"]) {
+  query: Query
+}
+
+type GEN__1 {
+  campaignTemplates: JSON
+  colors: [JSON]
+}
+
+type Query {
+  inCompatibleProperties: GEN__1 @http(url: "https://example.com/")
+}

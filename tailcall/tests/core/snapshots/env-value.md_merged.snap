@@ -1,0 +1,21 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Post {
+  body: String
+  id: Int
+  title: String
+  userId: Int!
+}
+
+type Query {
+  post1: Post @http(url: "http://jsonplaceholder.typicode.com/posts/1")
+  post2: Post @http(url: "http://jsonplaceholder.typicode.com/posts/2")
+  post3: Post @http(url: "http://jsonplaceholder.typicode.com/posts/3")
+}

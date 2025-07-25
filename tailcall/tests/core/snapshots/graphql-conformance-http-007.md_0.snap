@@ -1,0 +1,29 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "profiles": [
+        {
+          "handle": "user-1",
+          "friends": {
+            "count": 2
+          }
+        },
+        {
+          "handle": "page-1",
+          "likers": {
+            "count": 4
+          }
+        }
+      ]
+    }
+  }
+}

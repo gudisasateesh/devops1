@@ -1,0 +1,38 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Bar {
+  bar: String
+}
+
+type Baz {
+  bar: String
+  baz: String
+}
+
+type Foo {
+  foo: String
+}
+
+union FooBarBaz = Bar | Baz | Foo
+
+type Nested {
+  bar: FooBarBaz
+  foo: FooBarBaz
+}
+
+type Query {
+  arr: [FooBarBaz]
+  bar: FooBarBaz
+  foo: FooBarBaz
+  nested: Nested
+  string: FooBarBaz
+  unknown: FooBarBaz
+  wrong: FooBarBaz
+}
+
+schema {
+  query: Query
+}

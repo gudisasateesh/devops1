@@ -1,0 +1,22 @@
+schema @server @upstream {
+  query: Query
+}
+
+input Foo {
+  tar: String
+}
+
+input Bar {
+  tar: String
+}
+
+input Far {
+  tar: String
+  id: ID
+}
+
+type Query {
+  foo(input: Foo): String @http(url: "https://jsonplaceholder.typicode.com/foo")
+  bar(input: Bar): String @http(url: "https://jsonplaceholder.typicode.com/bar")
+  far(input: Far): String @http(url: "https://jsonplaceholder.typicode.com/far")
+}

@@ -1,0 +1,12 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "  --> 10:20\n   |\n10 |   user: User @http()\n   |                    ^---\n   |\n   = expected name",
+    "trace": [],
+    "description": null
+  }
+]

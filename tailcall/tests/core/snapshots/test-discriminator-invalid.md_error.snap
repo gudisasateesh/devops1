@@ -1,0 +1,15 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "The `field` cannot be an empty string for the `@discriminate` of type FooBar",
+    "trace": [
+      "Query",
+      "foo"
+    ],
+    "description": null
+  }
+]

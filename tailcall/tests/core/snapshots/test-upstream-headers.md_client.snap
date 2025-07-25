@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+---
+type Post {
+  id: Int
+}
+
+type Query {
+  barField: String
+  fooField: String
+  posts: [Post]
+}
+
+schema {
+  query: Query
+}

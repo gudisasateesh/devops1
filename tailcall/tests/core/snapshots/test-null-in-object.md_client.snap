@@ -1,0 +1,17 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Company {
+  id: ID
+  name: String
+}
+
+type Query {
+  hi(id: ID!): Company
+}
+
+schema {
+  query: Query
+}

@@ -1,0 +1,21 @@
+---
+source: tests/core/spec.rs
+expression: errors
+snapshot_kind: text
+---
+[
+  {
+    "message": "Query type is not defined",
+    "trace": [
+      "QueryType"
+    ],
+    "description": null
+  },
+  {
+    "message": "Mutation type is not defined",
+    "trace": [
+      "MutationDef"
+    ],
+    "description": null
+  }
+]

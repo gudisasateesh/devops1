@@ -1,0 +1,25 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream(batch: {delay: 1, headers: [], maxSize: 1000}) @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+type Bar {
+  foo: [Foo] @http(url: "http://example.com/foos", batchKey: ["id"], query: [{key: "id", value: "{{.value.fooId}}"}])
+  fooId: Int!
+  id: Int!
+}
+
+type Foo {
+  bar: Bar @http(url: "http://example.com/bars", batchKey: ["fooId"], query: [{key: "fooId", value: "{{.value.id}}"}])
+  id: Int!
+  name: String!
+}
+
+type Query {
+  bars: [Bar] @http(url: "http://example.com/bars")
+  foos: [Foo] @http(url: "http://example.com/foos")
+}

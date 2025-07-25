@@ -1,0 +1,34 @@
+schema
+  @server(port: 8000)
+  @upstream(httpCache: 42)
+  @link(id: "auth-basic", type: Htpasswd, src: ".htpasswd")
+  @link(id: "auth-jwt", type: Jwks, src: ".jwks") {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  posts: [Post] @http(url: "http://jsonplaceholder.typicode.com/posts")
+  user(id: Int!): User @http(url: "http://jsonplaceholder.typicode.com/users/{{.args.id}}")
+}
+
+type Mutation {
+  user(id: Int!): User @http(url: "http://jsonplaceholder.typicode.com/users/{{.args.id}}")
+}
+
+type User @protected {
+  id: Int!
+  name: String!
+  username: String!
+  email: String!
+  phone: String
+  website: String
+}
+
+type Post {
+  id: Int!
+  userId: Int!
+  title: String!
+  body: String! @protected
+  user: User @http(url: "http://jsonplaceholder.typicode.com/users/{{.value.userId}}")
+}

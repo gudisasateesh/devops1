@@ -1,0 +1,20 @@
+---
+source: tests/core/spec.rs
+expression: formatter
+snapshot_kind: text
+---
+schema @server @upstream @link(src: "schema_0.graphql", type: Config) {
+  query: Query
+}
+
+"""
+Description of enum Foo
+"""
+enum Foo {
+  BAR
+  BAZ
+}
+
+type Query {
+  foo(val: String!): Foo @expr(body: "{{.args.val}}")
+}

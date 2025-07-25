@@ -1,0 +1,19 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Query {
+  addUsers(userNames: [[String!]!]!): Boolean
+  userGroups: [[User!]!]!
+}
+
+type User {
+  accountRef: String!
+  id: ID!
+  name: String!
+}
+
+schema {
+  query: Query
+}

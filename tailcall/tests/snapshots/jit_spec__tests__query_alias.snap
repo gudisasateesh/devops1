@@ -1,0 +1,17 @@
+---
+source: tests/jit_spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "data": {
+    "user1": {
+      "id": 1,
+      "name": "Leanne Graham"
+    },
+    "user2": {
+      "id": 2,
+      "name": "Ervin Howell"
+    }
+  }
+}

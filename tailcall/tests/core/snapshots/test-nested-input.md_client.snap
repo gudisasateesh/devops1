@@ -1,0 +1,32 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+input A {
+  b: B
+}
+
+input B {
+  c: C
+}
+
+input C {
+  d: D
+}
+
+input D {
+  e: Int
+}
+
+type Query {
+  a(a: A!): X
+}
+
+type X {
+  a: String
+}
+
+schema {
+  query: Query
+}

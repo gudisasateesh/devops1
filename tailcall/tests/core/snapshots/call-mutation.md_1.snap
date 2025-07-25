@@ -1,0 +1,28 @@
+---
+source: tests/core/spec.rs
+expression: response
+snapshot_kind: text
+---
+{
+  "status": 200,
+  "headers": {
+    "content-type": "application/json"
+  },
+  "body": {
+    "data": {
+      "firstUser": {
+        "posts": [
+          {
+            "title": "post1-title"
+          },
+          {
+            "title": "post2-title"
+          },
+          {
+            "title": "post3-title"
+          }
+        ]
+      }
+    }
+  }
+}

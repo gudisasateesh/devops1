@@ -1,0 +1,26 @@
+---
+source: tests/core/spec.rs
+expression: formatted
+snapshot_kind: text
+---
+type Foo {
+  a: String
+  b: String
+  c: String
+  name: String
+  x: X
+}
+
+type Query {
+  user: Foo
+}
+
+type X {
+  a: String
+  b: String
+  c: String
+}
+
+schema {
+  query: Query
+}
